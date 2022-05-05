@@ -1,0 +1,101 @@
+textarea {
+    display: block;
+    width: 715px;
+    height: 20vh;
+    margin: 20px auto;
+    border: 3px solid black;
+}
+
+div {
+    width: 715px;
+    margin: 0 auto;
+
+    border: 2px solid black;
+    padding: 10px;
+
+    background-color: rgb(214, 214, 255);
+}
+
+ul {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 40px;
+    height: 40px;
+
+    font-size: 2rem;
+    font-weight: 600;
+
+    border: 1px solid black;
+    border-radius: 5px;
+
+    margin-right: 5px;
+
+    background-color: rgb(100, 100, 155);
+    color: #fff;
+    cursor: pointer;
+}
+
+li:hover {
+    background-color: rgb(170 203 21);
+}
+
+li:last-child {
+    margin-right: 0;
+}
+
+.btnBackspace,
+.btnDel,
+.btnTab,
+.btnEnter,
+.btnCapsLock,
+.btnShiftLeft,
+.btnShiftRight,
+.btnCntrLeft,
+.btnCntrRight,
+.btnWin,
+.btnAltLeft,
+.btnAltRight,
+.btnUp,
+.btnDown,
+.btnLeft,
+.btnRight,
+.btnSpace {
+    background-color: rgb(55 61 110);
+}
+
+
+
+.btnBackspace {
+    width: 105px;
+}
+
+.btnDel,
+.btnTab {
+    width: 50px;
+}
+
+.btnEnter,
+.btnCapsLock {
+    width: 105px;
+}
+
+.btnShiftLeft,
+.btnShiftRight {
+    width: 105px;
+}
+
+.btnCntrLeft,
+.btnCntrRight {
+    width: 55px;
+}
+
+.btnSpace {
+    width: 300px;
+}
