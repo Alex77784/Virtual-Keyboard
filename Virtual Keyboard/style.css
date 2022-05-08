@@ -43,29 +43,35 @@ li {
 }
 
 li:hover {
-    background-color: rgb(170 203 21);
+    background-color: rgb(83 83 233);
 }
+
+li.active {
+    background-color: rgb(83 83 233);
+    border-radius: 20px;
+}
+
 
 li:last-child {
     margin-right: 0;
 }
 
 .btnBackspace,
-.btnDel,
+.btnNumpadDecimal,
 .btnTab,
 .btnEnter,
 .btnCapsLock,
 .btnShiftLeft,
 .btnShiftRight,
-.btnCntrLeft,
-.btnCntrRight,
-.btnWin,
+.btnControlLeft,
+.btnControlRight,
+.btnMetaLeft,
 .btnAltLeft,
 .btnAltRight,
-.btnUp,
-.btnDown,
-.btnLeft,
-.btnRight,
+.btnArrowUp,
+.btnArrowDown,
+.btnArrowLeft,
+.btnArrowRight,
 .btnSpace {
     background-color: rgb(55 61 110);
 }
@@ -76,7 +82,7 @@ li:last-child {
     width: 105px;
 }
 
-.btnDel,
+.btnNumpadDecimal,
 .btnTab {
     width: 50px;
 }
@@ -91,8 +97,8 @@ li:last-child {
     width: 105px;
 }
 
-.btnCntrLeft,
-.btnCntrRight {
+.btnControlLeft,
+.btnControlRight {
     width: 55px;
 }
 
