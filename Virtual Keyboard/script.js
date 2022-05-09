@@ -5,7 +5,7 @@ let keyboardFace = [
     '\\', 'Del', 'CapsLock', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';', "'", 'Enter', 'Shift', 'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/', '&#9650', 'Shift', 'Cntr', 'Win', 'Alt', '', 'Alt', '&#9668', '&#9660', '&#9658', 'Cntr'
 ];
 
-let capsLock = [
+let capsLockArray = [
     'Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M'
 ];
 let shift = [
@@ -22,11 +22,20 @@ body.prepend(display);
 let title = document.createElement('h1');
 body.prepend(title);//*body
 title.innerHTML = 'Virtual Keyboard';
+title.classList.add('title')
 
 // keyboardBegin
 let keyboardCreate = document.createElement('div');
 display.after(keyboardCreate);
 // keyboardEnd
+
+// description use keyboard
+let descriptionOC = document.createElement('p'),
+    descriptionLanguage = document.createElement('p');
+keyboardCreate.after(descriptionOC);
+keyboardCreate.after(descriptionLanguage);
+descriptionOC.textContent = 'Клавиатура создана в ОС Windows.';
+descriptionLanguage.textContent = 'Переключене языка: левый CTRL Shift.';
 
 // rowKeyboardBedin
 let row1 = document.createElement('ul');
@@ -51,11 +60,12 @@ let row1Class = row1.classList.add('row1'),
 // createButton with class
 for (let i = 0; i < 14; i++) {
     const element = keyboardFace[i];
+    const elementDefault = keyboardDefault[i];
     let buttonRow1 = document.createElement('li');
 
     row1.append(buttonRow1);
     buttonRow1.innerHTML = element;
-    buttonRow1.classList.add('btn' + element);
+    buttonRow1.classList.add('btn' + elementDefault)
 };
 
 for (let i = 14; i < 29; i++) {
@@ -100,11 +110,62 @@ for (let i = 55; i < keyboardDefault.length; i++) {
 
 // backlight buttons
 document.onkeydown = (event) => {
-    document.querySelector('.btn' + event.code).
-        classList.add('active');
+    document.querySelector('.btn' + event.code).classList.add('active');
 };
+
 document.onkeyup = (event) => {
     document.querySelector('.btn' + event.code).
         classList.remove('active');
+};
+
+//toggle Caps Lock
+let capsLock = document.querySelector('.btnCapsLock');
+capsLock.addEventListener('click', upperCase);
+
+
+function upperCase() {
+    capsLock.classList.toggle('active');
+    let checkOut = capsLock.className;
+
+    if (checkOut == 'btnCapsLock active') {
+        for (let index = 15, i = 0; index < 25; index++, i++) {
+            const element = keyboardDefault[index];
+            let capsL = capsLockArray[i];
+            let button = document.querySelector('.btn' + element);
+            button.textContent = capsL;
+        };
+        for (let index = 30, i = 10; index < 39; index++, i++) {
+            const element = keyboardDefault[index];
+            let capsL = capsLockArray[i];
+            let button = document.querySelector('.btn' + element);
+            button.textContent = capsL;
+        };
+        for (let index = 43, i = 19; index < 50; index++, i++) {
+            const element = keyboardDefault[index];
+            let capsL = capsLockArray[i];
+            let button = document.querySelector('.btn' + element);
+            button.textContent = capsL;
+        }
+    } else if (checkOut == 'btnCapsLock') {
+
+        for (let index = 15; index < 25; index++) {
+            const element = keyboardFace[index];
+            const elemClass = keyboardDefault[index];
+            let button = document.querySelector('.btn' + elemClass);
+            button.textContent = element;
+        };
+        for (let index = 30; index < 39; index++) {
+            const element = keyboardFace[index];
+            const elemClass = keyboardDefault[index];
+            let button = document.querySelector('.btn' + elemClass);
+            button.textContent = element;
+        };
+        for (let index = 43; index < 50; index++) {
+            const element = keyboardFace[index];
+            const elemClass = keyboardDefault[index];
+            let button = document.querySelector('.btn' + elemClass);
+            button.textContent = element;
+        };
+    }
 };
 
